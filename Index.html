@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Radio | 90s Music</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #f4e5c5;
+  color: #39251b;
+}
+
+header {
+  background: #a83225;
+  color: white;
+  padding: 22px;
+  text-align: center;
+  border-bottom: 5px solid #e2ae53;
+}
+
+header h1 {
+  font-size: 35px;
+  letter-spacing: 3px;
+}
+
+nav {
+  background: #38251c;
+  padding: 14px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 12px;
+  font-size: 15px;
+}
+
+.hero {
+  text-align: center;
+  padding: 65px 20px;
+  background: linear-gradient(#f5d69d, #d69c55);
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.player {
+  background: #a83225;
+  color: white;
+  max-width: 420px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px #80644b;
+}
+
+.player button {
+  padding: 12px 25px;
+  background: #edc36f;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.playlist {
+  max-width: 600px;
+  margin: auto;
+}
+
+.song {
+  background: white;
+  margin: 10px;
+  padding: 18px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.song button {
+  background: #a83225;
+  color: white;
+  padding: 9px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.community {
+  background: #38251c;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.community a {
+  display: inline-block;
+  margin-top: 20px;
+  background: #25d366;
+  color: white;
+  padding: 13px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+footer {
+  background: #a83225;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+@media(max-width:600px) {
+  header h1 {font-size: 26px;}
+  .hero h2 {font-size: 30px;}
+  nav a {margin: 5px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>RETRO RADIO</h1>
+  <p>Good Old Days • Good Old Music</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#music">Music</a>
+  <a href="#playlist">Playlist</a>
+  <a href="#community">Community</a>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Welcome to the 90s!</h2>
+  <p>Relive the golden era of Indian music.</p>
+</section>
+
+<section class="section" id="music">
+  <h2>🎵 Listen Live</h2>
+
+  <div class="player">
+    <h3 id="songTitle">Retro Radio Player</h3>
+    <p>Enjoy your favourite old-school music.</p>
+
+    <audio id="audio" controls style="width:100%; margin-top:20px;">
+      Your browser does not support audio.
+    </audio>
+
+    <button onclick="toggleMusic()">Play / Pause</button>
+  </div>
+</section>
+
+<section class="section" id="playlist">
+  <h2>Our Playlist</h2>
+
+  <div class="playlist">
+    <div class="song">
+      <span>01. Add your first song</span>
+      <button onclick="playSong('song1.mp3','Song 1')">Play</button>
+    </div>
+
+    <div class="song">
+      <span>02. Add your second song</span>
+      <button onclick="playSong('song2.mp3','Song 2')">Play</button>
+    </div>
+
+    <div class="song">
+      <span>03. Add your third song</span>
+      <button onclick="playSong('song3.mp3','Song 3')">Play</button>
+    </div>
+  </div>
+</section>
+
+<section class="community" id="community">
+  <h2>Join Our Community</h2>
+  <p>Connect with music lovers!</p>
+  <a href="https://wa.me/" target="_blank">
+    Join WhatsApp
+  </a>
+</section>
+
+<footer>
+  <p>© 2026 Retro Radio. All Rights Reserved.</p>
+</footer>
+
+<script>
+const audio = document.getElementById("audio");
+
+function toggleMusic() {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+}
+
+function playSong(file, title) {
+  audio.src = file;
+  document.getElementById("songTitle").innerText = title;
+  audio.play();
+}
+</script>
+
+</body>
+</html>
