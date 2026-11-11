@@ -1,235 +1,341 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Radio | 90s Music</title>
-
+<meta name="description" content="ReviewBoost AI helps local businesses grow through digital marketing, social media, local SEO, review management and websites.">
+<title>ReviewBoost AI | Digital Growth Agency</title>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --bg:#080d1b;
+  --panel:#111a2e;
+  --blue:#4f8cff;
+  --purple:#9b75ff;
+  --white:#f7f8ff;
+  --muted:#a9b3c9;
 }
-
-body {
-  font-family: Georgia, serif;
-  background: #f4e5c5;
-  color: #39251b;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.6
 }
-
-header {
-  background: #a83225;
-  color: white;
-  padding: 22px;
-  text-align: center;
-  border-bottom: 5px solid #e2ae53;
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,90%);margin:auto}
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(8,13,27,.94);
+  border-bottom:1px solid #202b43;
+  backdrop-filter:blur(12px)
 }
-
-header h1 {
-  font-size: 35px;
-  letter-spacing: 3px;
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  min-height:72px;gap:20px
 }
-
-nav {
-  background: #38251c;
-  padding: 14px;
-  text-align: center;
+.logo{font-size:22px;font-weight:800}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:23px;flex-wrap:wrap}
+nav a{font-size:14px;color:var(--muted)}
+nav a:hover{color:white}
+.hero{
+  padding:100px 0 85px;text-align:center;
+  background:radial-gradient(ellipse at top,#182e5b 0%,#080d1b 65%)
 }
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 12px;
-  font-size: 15px;
+.tag{
+  display:inline-block;padding:7px 15px;border-radius:30px;
+  border:1px solid #405c91;color:#b9d1ff;font-size:13px
 }
-
-.hero {
-  text-align: center;
-  padding: 65px 20px;
-  background: linear-gradient(#f5d69d, #d69c55);
+h1{font-size:clamp(38px,7vw,70px);line-height:1.08;margin:24px 0}
+.gradient{
+  background:linear-gradient(90deg,#63a5ff,#b18bff);
+  -webkit-background-clip:text;background-clip:text;color:transparent
 }
-
-.hero h2 {
-  font-size: 40px;
-  margin-bottom: 15px;
+.hero p{max-width:650px;margin:20px auto;color:var(--muted);font-size:18px}
+.actions{display:flex;justify-content:center;gap:13px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-block;padding:13px 22px;border-radius:9px;
+  font-weight:bold;background:linear-gradient(100deg,var(--blue),var(--purple));
+  color:white;border:0;cursor:pointer
 }
-
-.hero p {
-  font-size: 18px;
+.btn.secondary{background:transparent;border:1px solid #506184}
+section{padding:75px 0}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-size:34px;margin:0 0 10px}
+.section-title p{color:var(--muted)}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px
 }
-
-.section {
-  padding: 40px 20px;
-  text-align: center;
+.card{
+  background:var(--panel);border:1px solid #26344f;
+  padding:25px;border-radius:15px;transition:.2s
 }
-
-.section h2 {
-  font-size: 30px;
-  margin-bottom: 25px;
+.card:hover{transform:translateY(-5px);border-color:var(--blue)}
+.card .emoji{font-size:30px}
+.card h3{margin:12px 0 7px}
+.card p{color:var(--muted);font-size:14px}
+.about{
+  background:#0d1426;border-top:1px solid #202b43;
+  border-bottom:1px solid #202b43
 }
-
-.player {
-  background: #a83225;
-  color: white;
-  max-width: 420px;
-  margin: auto;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px #80644b;
+.steps{counter-reset:step}
+.step{position:relative}
+.step:before{
+  counter-increment:step;content:counter(step);
+  display:inline-grid;place-items:center;width:34px;height:34px;
+  border-radius:50%;background:#234a89;color:white;font-weight:bold
 }
-
-.player button {
-  padding: 12px 25px;
-  background: #edc36f;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
+.price{font-size:25px;font-weight:bold;color:#83afff}
+.price small{font-size:12px;color:var(--muted);font-weight:normal}
+.portfolio-note{
+  border:1px dashed #52678d;padding:15px;border-radius:10px;
+  color:#c4d1e9;margin-bottom:22px;font-size:13px
 }
-
-.playlist {
-  max-width: 600px;
-  margin: auto;
+.contact{
+  background:linear-gradient(130deg,#14264a,#15102c);
+  border-radius:20px;padding:40px
 }
-
-.song {
-  background: white;
-  margin: 10px;
-  padding: 18px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+input,textarea,select{
+  width:100%;padding:14px;margin:8px 0 15px;
+  background:#0b1325;border:1px solid #344461;
+  border-radius:8px;color:white;font:inherit
 }
-
-.song button {
-  background: #a83225;
-  color: white;
-  padding: 9px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+label{font-size:14px;color:#dce5f8}
+textarea{min-height:110px;resize:vertical}
+footer{
+  padding:30px 0;text-align:center;color:var(--muted);
+  border-top:1px solid #202b43;font-size:13px
 }
-
-.community {
-  background: #38251c;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.community a {
-  display: inline-block;
-  margin-top: 20px;
-  background: #25d366;
-  color: white;
-  padding: 13px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-}
-
-footer {
-  background: #a83225;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-@media(max-width:600px) {
-  header h1 {font-size: 26px;}
-  .hero h2 {font-size: 30px;}
-  nav a {margin: 5px;}
+footer a{color:#91b9ff}
+@media(max-width:650px){
+ .nav{padding:14px 0;align-items:flex-start;flex-direction:column}
+ nav{gap:13px}
+ .hero{padding:70px 0}
+ section{padding:55px 0}
+ .contact{padding:23px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>RETRO RADIO</h1>
-  <p>Good Old Days • Good Old Music</p>
+ <div class="container nav">
+  <a href="#" class="logo">ReviewBoost <span>AI.</span></a>
+  <nav>
+   <a href="#services">Services</a>
+   <a href="#about">About</a>
+   <a href="#portfolio">Portfolio</a>
+   <a href="#pricing">Pricing</a>
+   <a href="#contact">Contact</a>
+  </nav>
+ </div>
 </header>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#music">Music</a>
-  <a href="#playlist">Playlist</a>
-  <a href="#community">Community</a>
-</nav>
-
-<section class="hero" id="home">
-  <h2>Welcome to the 90s!</h2>
-  <p>Relive the golden era of Indian music.</p>
-</section>
-
-<section class="section" id="music">
-  <h2>🎵 Listen Live</h2>
-
-  <div class="player">
-    <h3 id="songTitle">Retro Radio Player</h3>
-    <p>Enjoy your favourite old-school music.</p>
-
-    <audio id="audio" controls style="width:100%; margin-top:20px;">
-      Your browser does not support audio.
-    </audio>
-
-    <button onclick="toggleMusic()">Play / Pause</button>
+<main>
+<section class="hero">
+ <div class="container">
+  <span class="tag">YOUR DIGITAL GROWTH PARTNER</span>
+  <h1>Grow Your Business<br><span class="gradient">With Smarter Marketing.</span></h1>
+  <p>We help local businesses build their online presence, attract customers and grow with smart digital marketing solutions.</p>
+  <div class="actions">
+   <a class="btn" href="#contact">Get Started →</a>
+   <a class="btn secondary" href="#services">Explore Services</a>
   </div>
+ </div>
 </section>
 
-<section class="section" id="playlist">
-  <h2>Our Playlist</h2>
-
-  <div class="playlist">
-    <div class="song">
-      <span>01. Add your first song</span>
-      <button onclick="playSong('song1.mp3','Song 1')">Play</button>
-    </div>
-
-    <div class="song">
-      <span>02. Add your second song</span>
-      <button onclick="playSong('song2.mp3','Song 2')">Play</button>
-    </div>
-
-    <div class="song">
-      <span>03. Add your third song</span>
-      <button onclick="playSong('song3.mp3','Song 3')">Play</button>
-    </div>
+<section id="services">
+ <div class="container">
+  <div class="section-title">
+   <h2>Our Services</h2>
+   <p>Everything your business needs to grow online.</p>
   </div>
+  <div class="grid">
+   <article class="card">
+    <div class="emoji">📱</div>
+    <h3>Social Media Marketing</h3>
+    <p>Creative content, social media calendars and account management for Instagram and Facebook.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">⭐</div>
+    <h3>Review Management</h3>
+    <p>Monitor customer feedback and create thoughtful, professional replies to genuine reviews.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">📍</div>
+    <h3>Local SEO</h3>
+    <p>Improve local search visibility and optimise your Google Business Profile.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">🎯</div>
+    <h3>Meta Ads</h3>
+    <p>Plan and manage Facebook and Instagram advertising campaigns with clear reporting.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">💻</div>
+    <h3>Website Development</h3>
+    <p>Responsive, modern websites and landing pages designed to generate enquiries.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">🔍</div>
+    <h3>SEO Services</h3>
+    <p>Website audits, keyword research and on-page optimisation.</p>
+   </article>
+  </div>
+ </div>
 </section>
 
-<section class="community" id="community">
-  <h2>Join Our Community</h2>
-  <p>Connect with music lovers!</p>
-  <a href="https://wa.me/" target="_blank">
-    Join WhatsApp
-  </a>
+<section class="about" id="about">
+ <div class="container">
+  <div class="section-title">
+   <h2>Why ReviewBoost AI?</h2>
+   <p>Simple, transparent and growth-focused marketing.</p>
+  </div>
+  <div class="grid">
+   <article class="card"><h3>📊 Data-focused</h3><p>We track useful metrics and use them to improve marketing decisions.</p></article>
+   <article class="card"><h3>🤝 Personal support</h3><p>Clear communication and solutions based on each business's goals.</p></article>
+   <article class="card"><h3>⚡ Smart workflows</h3><p>Use modern digital and AI tools to make marketing work more efficiently.</p></article>
+  </div>
+ </div>
 </section>
+
+<section id="portfolio">
+ <div class="container">
+  <div class="section-title">
+   <h2>Our Portfolio</h2>
+   <p>Examples of the work we can create.</p>
+  </div>
+  <div class="portfolio-note">
+   These are demonstration concepts, not claimed client projects or verified business results. Replace them with real work after receiving permission from clients.
+  </div>
+  <div class="grid">
+   <article class="card">
+    <div class="emoji">🍽️</div>
+    <h3>Restaurant Growth Concept</h3>
+    <p>Sample Instagram campaign, menu promotion and local profile optimisation.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">💇</div>
+    <h3>Salon Marketing Concept</h3>
+    <p>Sample service promotions, social media posts and customer review response templates.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">🏋️</div>
+    <h3>Fitness Marketing Concept</h3>
+    <p>Sample membership campaign, promotional creatives and enquiry landing page.</p>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="pricing" class="about">
+ <div class="container">
+  <div class="section-title">
+   <h2>Starter Packages</h2>
+   <p>Illustrative starting prices. Final quotes depend on the actual work.</p>
+  </div>
+  <div class="grid">
+   <article class="card">
+    <h3>Starter</h3>
+    <div class="price">₹1,999 <small>/ month</small></div>
+    <p>For small businesses starting their social media journey.</p>
+    <p>• Basic content planning<br>• 4 social media creatives<br>• Monthly progress summary</p>
+    <a class="btn" href="#contact">Enquire</a>
+   </article>
+   <article class="card">
+    <h3>Growth</h3>
+    <div class="price">₹3,999 <small>/ month</small></div>
+    <p>For businesses wanting a more active online presence.</p>
+    <p>• 8 social media creatives<br>• Profile optimisation<br>• Review response support<br>• Monthly report</p>
+    <a class="btn" href="#contact">Enquire</a>
+   </article>
+   <article class="card">
+    <h3>Custom</h3>
+    <div class="price">Let's Talk</div>
+    <p>For businesses with specific marketing requirements.</p>
+    <p>• Website projects<br>• SEO plans<br>• Ad campaign management<br>• Custom deliverables</p>
+    <a class="btn" href="#contact">Enquire</a>
+   </article>
+  </div>
+  <p style="color:#a9b3c9;font-size:12px;margin-top:20px">Advertising spend, taxes and third-party charges are separate. No sales or growth results are guaranteed.</p>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="contact">
+   <div class="section-title">
+    <h2>Let's Grow Your Business</h2>
+    <p>Tell us about your business and what you want to achieve.</p>
+   </div>
+   <form id="leadForm">
+    <label for="name">Your name</label>
+    <input id="name" required placeholder="Enter your name">
+    <label for="business">Business name</label>
+    <input id="business" required placeholder="Enter business name">
+    <label for="service">Service required</label>
+    <select id="service" required>
+     <option value="">Choose a service</option>
+     <option>Social Media Marketing</option>
+     <option>Google Business Profile</option>
+     <option>Review Management</option>
+     <option>SEO</option>
+     <option>Meta Ads</option>
+     <option>Website Development</option>
+     <option>Full Digital Marketing</option>
+    </select>
+    <label for="message">Your requirements</label>
+    <textarea id="message" placeholder="Tell us about your goals"></textarea>
+    <button class="btn" type="submit">Send Enquiry on WhatsApp →</button>
+   </form>
+   <p style="font-size:13px;color:#c0cce2">Prefer email? <a href="mailto:YOUR_EMAIL@example.com">Contact us by email</a></p>
+  </div>
+ </div>
+</section>
+</main>
 
 <footer>
-  <p>© 2026 Retro Radio. All Rights Reserved.</p>
+ <div class="container">
+  <p><strong>ReviewBoost AI</strong> — Digital Growth Partner</p>
+  <p>© <span id="year"></span> ReviewBoost AI. All rights reserved.</p>
+  <p>Professional marketing. Honest communication. Real work.</p>
+ </div>
 </footer>
 
 <script>
-const audio = document.getElementById("audio");
+document.getElementById("year").textContent = new Date().getFullYear();
 
-function toggleMusic() {
-  if (audio.paused) {
-    audio.play();
-  } else {
-    audio.pause();
-  }
-}
+// Replace with your WhatsApp number, including country code.
+// Example format for India: 919876543210
+const WHATSAPP_NUMBER = "9326306370";
 
-function playSong(file, title) {
-  audio.src = file;
-  document.getElementById("songTitle").innerText = title;
-  audio.play();
-}
+document.getElementById("leadForm").addEventListener("submit", function(e) {
+ e.preventDefault();
+
+ const name = document.getElementById("name").value.trim();
+ const business = document.getElementById("business").value.trim();
+ const service = document.getElementById("service").value;
+ const message = document.getElementById("message").value.trim();
+
+ if (!name || !business || !service) {
+  alert("Please fill in all required fields.");
+  return;
+ }
+
+ if (!/^91[0-9]{10}$/.test(WHATSAPP_NUMBER)) {
+  alert("The website owner needs to add a valid WhatsApp number first.");
+  return;
+ }
+
+ const text =
+  "Hello ReviewBoost AI!%0A%0A" +
+  "Name: " + encodeURIComponent(name) + "%0A" +
+  "Business: " + encodeURIComponent(business) + "%0A" +
+  "Service: " + encodeURIComponent(service) + "%0A" +
+  "Requirements: " + encodeURIComponent(message);
+
+ window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text, "_blank");
+});
 </script>
-
 </body>
 </html>
